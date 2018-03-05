@@ -9,8 +9,12 @@
 #import <XCTest/XCTest.h>
 #import "networkManager.h"
 #import "mainView.h"
+#import "mainViewModel.h"
+
 
 @interface Suresh_CodeTestTests : XCTestCase
+
+@property (nonatomic, strong) mainViewModel *viewModel;
 
 @end
 
@@ -30,7 +34,7 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
-    mainView *m = [mainView new];
+    mainView *m = [[mainView alloc] initWithViewModel:self.viewModel];
     [m tellClassName];
     
     XCTAssertTrue([[m mainTableView] isMemberOfClass:[UITableView class]]);
